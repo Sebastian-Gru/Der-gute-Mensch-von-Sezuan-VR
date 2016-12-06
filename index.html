@@ -9,340 +9,347 @@
 
 <!--Kommentar wird in A-Frame so geschrieben, bei // ist die Schrift links oben in der Szene-->
 <body>
-    <a-scene>
-        <!--Kamera-->
-        <a-entity id="kamera"
-                  position ="0 6 10"
-                  camera
-                  look-controls></a-entity>
-
-        <!--Bilder, Texturen, Modelle, etc.-->
-        <!---->
-        <a-assets>
-            <!--Wolken-->
-            <img id="wolken" src="img/sky_jsvis.png">
-            <!--Häuser-->
-            <a-asset-item id="house1" src="obj/haus1.obj"></a-asset-item>
-            <a-asset-item id="house2" src="obj/haus2.obj"></a-asset-item>
-            <a-asset-item id="house3" src="obj/haus3.obj"></a-asset-item>
-            <a-asset-item id="house5" src="obj/haus5.obj"></a-asset-item>
-            <a-asset-item id="house6" src="obj/haus6.obj"></a-asset-item>
-            <!--Götter-->
-            <a-asset-item id="gottFigur" src="dae/Gott.dae"></a-asset-item>
-            <!--Wasserträger-->
-            <a-asset-item id="wasserFigur" src="dae/Wassertrager.dae"></a-asset-item>
-        </a-assets>
-
-        <!--Raum-->
-        <!---->
-        <!--Skybox-->
-        <a-sky id="skybox"
-               color="#000000"></a-sky>
-
-        <!--Routierender Himmel-->
-        <a-entity id ="heaven">
-            <a-image id="heaven-1"
-                     mixin="image"
-                     scale ="43 43 43"
-                     rotation ="90 0 0"
-                     position ="0 44 0"
-                     material="side:double"
-                     src="#wolken">
-                <a-animation attribute="rotation"
-                             from="90 0 0"
-                             to="90 360 0"
-                             dur="50000"
-                             fill="none"
-                             repeat="indefinite"></a-animation>
-            </a-image>
-            <a-image id="heaven-2"
-                     mixin="image"
-                     scale ="63 63 63"
-                     rotation ="90 0 0"
-                     position ="0 42 0"
-                     material="side:double"
-                     src="#wolken">
-                <a-animation attribute="rotation"
-                             from="90 0 0"
-                             to="90 -360 0"
-                             dur="40000"
-                             fill="none"
-                             repeat="indefinite"></a-animation>
-            </a-image>
-            <a-image id="heaven-3"
-                     mixin="image"
-                     scale ="85 85 85"
-                     rotation ="90 0 0"
-                     position ="0 40 0"
-                     material="side:double"
-                     src="#wolken">
-                <a-animation attribute="rotation"
-                             from="90 0 0"
-                             to="90 360 0"
-                             delay="3000"
-                             easing="linear"
-                             dur="30000"
-                             fill="none"
-                             repeat="indefinite"></a-animation>
-            </a-image>
-        </a-entity> <!--Ende Himmel-->
-
-        <!--Grundriss von Sezuan-->
-        <!---->
-        <!--Grundplatte-->
-        <a-entity id="sezuan"
-                  geometry = "primitive: plane; height:150; width:150"
-                  position ="0 0 0"
-                  rotation="90 0 0"
-                  material="side:double"></a-entity>
-        <!---->
-        <!--Häuser Grundrisse-->
-        <!---->
-<!--HG1-->
-        <!--Herr Fo's Haus-->
-        <!--Streng, Nur bedienstete zuhause-->
-        <a-entity id="FosHaus"
-                  geometry="primitive: box; width: 7; height: 0.2; depth: 12"
-                  material="color: #000000"
-                  position ="-6.7 0 -9"></a-entity>
-        <a-entity id="FosHaus-Innen"
-                  geometry="primitive: box; width: 6.5; height: 0.201; depth: 11.5"
-                  material="color: #ffffff"
-                  position ="-6.7 0 -9"></a-entity>
-
-<!--HG2-->
-        <!--Witwe Su's Hause-->
-        <!--Kleines, unaufgeräumtes Zimmer mit Spinnen-->
-        <a-entity id="SusHaus"
-                  geometry="primitive: box; width: 7; height: 0.2; depth: 6"
-                  material="color: #000000"
-                  position ="-7 0 24"></a-entity>
-        <a-entity id="SusHaus-Innen"
-                  geometry="primitive: box; width: 6.5; height: 0.201; depth: 5.5"
-                  material="color: #ffffff"
-                  position ="-7 0 24"></a-entity>
-
-<!--HG3-->
-        <!--Herr Tsheng's Haus-->
-        <!--"Verschone mih mit deinen Göttern"-->
-        <!--Haus voll Verwandtschaft-->
-        <!--Böse Verwandtschaft-->
-        <a-entity id="TshengsHaus"
-                  geometry="primitive: box; width: 14; height: 0.2; depth: 13"
-                  material="color: #000000"
-                  position ="-27 0 9"></a-entity>
-        <a-entity id="TshengsHaus-Innen"
-                  geometry="primitive: box; width: 13.5; height: 0.2009; depth: 12.5"
-                  material="color: #ffffff"
-                  position ="-27 0 9"></a-entity>
-<!--??Flut??-->
-        <!--Gespräch über Flut-->
-        <!--???Straßen werden langsam mit Wasser geflutet???-->
-        <!--???Flut zieht wieder ab???-->
-        <!---->
-<!--?HG`s?-->
-        <!--Wang zögernd in den Straßen-->
-        <!--??Vielleicht noch ein paar Häuser, die Ihn abweisen, während die Götter reden-->
-        <!--Auch Wang ist ein Betrüger, => Farbänderung?-->
-        <!---->
-<!--HG?-->
-        <!--Gespräch mit einem Herren-->
-        <!--Dieser weist Wang ab und geht weiter-->
-        <!---->
-<!--HG4-Tabakladen-->
-        <!--Gespräch mit nächstem Herren-->
-        <!--Auch dieser weist Wang ab-->
-        <!--Geht in einen Tabakladen-->
-        <!--Wände noch nicht hochziehen...-->
-        <!---->
-        <!--Wang wieder zu den Göttern-->
-        <!--Doppelter_Boden_Becher auf dem Boden-->
-        <!--Wang wieder ab-->
-        <!---->
-        <!--Wang zu dem Tabakladen-->
-        <!--Mann ab-->
-        <!--Tabakladen zieht sich zu-->
-        <!---->
-        <a-entity id="Tabakladen"
-                  geometry="primitive: box; width: 16; height: 0.2; depth: 10"
-                  material="color: #000000"
-                  position ="11.5 0 -15.5"></a-entity>
-        <a-entity id="Tabakladen-Innen"
-                  geometry="primitive: box; width: 15.5; height: 0.201; depth: 9.5"
-                  material="color: #ffffff"
-                  position ="11.5 0 -15.5"></a-entity>
-
-<!--HG5-->
-        <!--Shen Te's Haus-->
-        <!--Wang zu ihrem Haus-->
-        <!--Gespräch-->
-        <!--...-->
-        <!---->
-        <!---->
-        <a-entity id="ShenTesHaus"
-                  geometry="primitive: box; width: 14; height: 0.2; depth: 10"
-                  material="color: #000000"
-                  position ="20 0 50"></a-entity>
-        <a-entity id="ShenTesHaus-Innen"
-                  geometry="primitive: box; width: 13.5; height: 0.201; depth: 9.5"
-                  material="color: #ffffff"
-                  position ="20 0 50"></a-entity>
-
-        <!--Straßen-Grundriss-->
-        <!--Hauptstraße-->
-        <a-entity id="hauptstraße-1"
-                  geometry="primitive: box; width: 0.02; height: 0.02; depth: 150"
-                  material="color: #000000"
-                  position ="-3 0 0"></a-entity>
-        <a-entity id="hauptstraße-2"
-                  geometry="primitive: box; width: 0.02; height: 0.02; depth: 150"
-                  material="color: #000000"
-                  position ="3 0 0"></a-entity>
-        <!--Seitenstraße-1-V-->
-        <a-entity id="seitenstraße-1.1"
-                  geometry="primitive: box; width: 70; height: 0.05; depth: 0.02"
-                  material="color: #000000"
-                  position ="38 0 -10"></a-entity>
-        <a-entity id="seitenstraße-1.2"
-                  geometry="primitive: box; width: 70; height: 0.05; depth: 0.02"
-                  material="color: #000000"
-                  position ="38 0 -6"></a-entity>
-        <!--Seitenstraße-2-V-->
-        <a-entity id="seitenstraße-2.1"
-                  geometry="primitive: box; width: 70; height: 0.05; depth: 0.02"
-                  material="color: #000000"
-                  position ="-38 0 -20"></a-entity>
-        <a-entity id="seitenstraße-2.2"
-                  geometry="primitive: box; width: 70; height: 0.05; depth: 0.02"
-                  material="color: #000000"
-                  position ="-38 0 -16"></a-entity>
-        <!--Seitenstraße-3-H-->
-        <a-entity id="seitenstraße-3.1"
-                  geometry="primitive: box; width: 70; height: 0.05; depth: 0.02"
-                  material="color: #000000"
-                  position ="38 0 40"></a-entity>
-        <a-entity id="seitenstraße-3.2"
-                  geometry="primitive: box; width: 70; height: 0.05; depth: 0.02"
-                  material="color: #000000"
-                  position ="38 0 44"></a-entity>
-        <!--Seitenstraße-4-H-->
-        <a-entity id="seitenstraße-4.1"
-                  geometry="primitive: box; width: 70; height: 0.05; depth: 0.02"
-                  material="color: #000000"
-                  position ="-38 0 20"></a-entity>
-        <a-entity id="seitenstraße-4.2"
-                  geometry="primitive: box; width: 70; height: 0.05; depth: 0.02"
-                  material="color: #000000"
-                  position ="-38 0 16"></a-entity> <!--Ende Straßen-->
-        <!---->
-        <!--Häuser-Komplett-->
-        <a-entity id="random-haus1"
-                  obj-model="obj: #house1"
-                  scale="0.01 0.01 0.01"
-                  position="-50 3 -8"
-                  rotation="0 180 0"></a-entity>
-        <a-entity id="random-haus2"
-                  obj-model="obj: #house2"
-                  scale="0.01 0.01 0.01"
-                  position="-13 3 -25"
-                  rotation="0 90 0"></a-entity>
-        <a-entity id="random-haus3"
-                  obj-model="obj: #house3"
-                  scale="0.01 0.01 0.01"
-                  position="10 3 -28"
-                  rotation="0 270 0"></a-entity>
-        <a-entity id="random-haus4"
-                  obj-model="obj: #house5"
-                  scale="0.01 0.01 0.01"
-                  position="27 3 -14"
-                  rotation="0 90 0"></a-entity>
-        <a-entity id="random-haus6"
-                  obj-model="obj: #house2"
-                  scale="0.01 0.01 0.01"
-                  position="7 3 16"
-                  rotation="0 180 0"></a-entity>
-        <a-entity id="random-haus7"
-                  obj-model="obj: #house5"
-                  scale="0.01 0.01 0.01"
-                  position="-20 3 24.5"
-                  rotation="0 270 0"></a-entity>
-        <a-entity id="random-haus8"
-                  obj-model="obj: #house1"
-                  scale="0.01 0.01 0.01"
-                  position="-10 3 -37"
-                  rotation="0 90 0"></a-entity>
-        <a-entity id="random-haus9"
-                  obj-model="obj: #house1"
-                  scale="0.01 0.01 0.01"
-                  position="-10 3 -58"
-                  rotation="0 90 0"></a-entity>
-        <a-entity id="random-haus10"
-                  obj-model="obj: #house1"
-                  scale="0.01 0.01 0.01"
-                  position="-19 3 -27"
-                  rotation="0 0 0"></a-entity>
-        <a-entity id="random-haus11"
-                  obj-model="obj: #house2"
-                  scale="0.01 0.01 0.01"
-                  position="6 3 -52"
-                  rotation="0 0 0"></a-entity>
-        <a-entity id="random-haus12"
-                  obj-model="obj: #house2"
-                  scale="0.01 0.01 0.01"
-                  position="-6 3 58"
-                  rotation="0 180 0"></a-entity>
-        <a-entity id="random-haus13"
-                  obj-model="obj: #house5"
-                  scale="0.01 0.01 0.01"
-                  position="-7 3 36"
-                  rotation="0 180 0"></a-entity>
-        <a-entity id="random-haus14"
-                  obj-model="obj: #house5"
-                  scale="0.01 0.01 0.01"
-                  position="7 3 52"
-                  rotation="0 180 0"></a-entity>
-        <a-entity id="random-haus15"
-                  obj-model="obj: #house5"
-                  scale="0.01 0.01 0.01"
-                  position="-34 3 -11.5"
-                  rotation="0 270 0"></a-entity>
-        <a-entity id="random-haus16"
-                  obj-model="obj: #house2"
-                  scale="0.01 0.01 0.01"
-                  position="-23.5 3 -11.5"
-                  rotation="0 90 0"></a-entity>
-        <a-entity id="random-haus17"
-                  obj-model="obj: #house1"
-                  scale="0.01 0.01 0.01"
-                  position="-35 3 27"
-                  rotation="0 180 0"></a-entity>
-        <a-entity id="random-haus18"
-                  obj-model="obj: #house1"
-                  scale="0.01 0.01 0.01"
-                  position="-41 3 8"
-                  rotation="0 0 0"></a-entity>
-        <a-entity id="random-haus19"
-                  obj-model="obj: #house3"
-                  scale="0.01 0.01 0.01"
-                  position="-50 3 27"
-                  rotation="0 180 0"></a-entity>
-
-
-        <!--Figuren-->
-        <!---->
+<a-scene>
+    <!--Bilder, Texturen, Modelle, etc.-->
+    <!---->
+    <a-assets>
+        <!--Wolken-->
+        <img id="wolken" src="img/sky_jsvis.png">
+        <!--Häuser-->
+        <a-asset-item id="house1" src="obj/haus1.obj"></a-asset-item>
+        <a-asset-item id="house2" src="obj/haus2.obj"></a-asset-item>
+        <a-asset-item id="house3" src="obj/haus3.obj"></a-asset-item>
+        <a-asset-item id="house5" src="obj/haus5.obj"></a-asset-item>
+        <a-asset-item id="house6" src="obj/haus6.obj"></a-asset-item>
         <!--Götter-->
-        <a-entity id="gott1" collada-model="#gottFigur" scale="2 2 2" color="white" position ="20 105 0">
-            <a-animation attribute="position" from="20 105 0" to="2 0 0" begin="0" dur="10000"></a-animation>
-        </a-entity>
-        <a-entity id="gott2" collada-model="#gottFigur" scale="2 2 2" color="white" position ="-20 105 0">
-            <a-animation attribute="position" from="-20 105 0" to="-2 0 0" begin="0" dur="10000"></a-animation>
-            </a-entity>
-        <a-entity id="gott3" collada-model="#gottFigur" scale="2 2 2" color="white" position ="0 105 20">
-            <a-animation attribute="position" from="0 105 20" to="0 0 1" begin="0" dur="10000"></a-animation>
-        </a-entity>
-        <!--Wasserträger - Wang-->
-        <a-entity id="wassertraeger" collada-model="#wasserFigur" scale="2 2 2" color="white" position ="0 0 5" rotation="0 180 0"></a-entity>
-    </a-scene>
+        <a-asset-item id="gottFigur" src="dae/Gott.dae"></a-asset-item>
+        <!--Wasserträger-->
+        <a-asset-item id="wasserFigur" src="dae/Wassertrager.dae"></a-asset-item>
+        <!--Ton - Volkan Saz-->
+        <audio id="volkanMusik" src="ton/volkanSaz01.mp3"></audio>
+    </a-assets>
+
+    <!--Hintergrundton-->
+    <a-entity sound="src: #volkanMusik; autoplay: true; loop:true"></a-entity>
+    <!---->
+    <!--Man kann den Ton auch an Objekte hängen (also für uns die Häuser vielleicht gut) und das der Ton z.B. erst auf Klick des Hauses losgeht-->
+    <!---->
+
+    <!--Kamera-->
+    <a-entity id="kamera"
+              position ="0 6 10"
+              camera
+              look-controls></a-entity>
+    <!--Raum-->
+    <!---->
+    <!--Skybox-->
+    <a-sky id="skybox"
+           color="#000000"></a-sky>
+
+    <!--Routierender Himmel-->
+    <a-entity id ="heaven">
+        <a-image id="heaven-1"
+                 mixin="image"
+                 scale ="43 43 43"
+                 rotation ="90 0 0"
+                 position ="0 44 0"
+                 material="side:double"
+                 src="#wolken">
+            <a-animation attribute="rotation"
+                         from="90 0 0"
+                         to="90 360 0"
+                         dur="50000"
+                         fill="none"
+                         repeat="indefinite"></a-animation>
+        </a-image>
+        <a-image id="heaven-2"
+                 mixin="image"
+                 scale ="63 63 63"
+                 rotation ="90 0 0"
+                 position ="0 42 0"
+                 material="side:double"
+                 src="#wolken">
+            <a-animation attribute="rotation"
+                         from="90 0 0"
+                         to="90 -360 0"
+                         dur="40000"
+                         fill="none"
+                         repeat="indefinite"></a-animation>
+        </a-image>
+        <a-image id="heaven-3"
+                 mixin="image"
+                 scale ="85 85 85"
+                 rotation ="90 0 0"
+                 position ="0 40 0"
+                 material="side:double"
+                 src="#wolken">
+            <a-animation attribute="rotation"
+                         from="90 0 0"
+                         to="90 360 0"
+                         delay="3000"
+                         easing="linear"
+                         dur="30000"
+                         fill="none"
+                         repeat="indefinite"></a-animation>
+        </a-image>
+    </a-entity> <!--Ende Himmel-->
+
+    <!--Grundriss von Sezuan-->
+    <!---->
+    <!--Grundplatte-->
+    <a-entity id="sezuan"
+              geometry = "primitive: plane; height:150; width:150"
+              position ="0 0 0"
+              rotation="90 0 0"
+              material="side:double"></a-entity>
+    <!---->
+    <!--Häuser Grundrisse-->
+    <!---->
+    <!--HG1-->
+    <!--Herr Fo's Haus-->
+    <!--Streng, Nur bedienstete zuhause-->
+    <a-entity id="FosHaus"
+              geometry="primitive: box; width: 7; height: 0.2; depth: 12"
+              material="color: #000000"
+              position ="-6.7 0 -9"></a-entity>
+    <a-entity id="FosHaus-Innen"
+              geometry="primitive: box; width: 6.5; height: 0.201; depth: 11.5"
+              material="color: #ffffff"
+              position ="-6.7 0 -9"></a-entity>
+
+    <!--HG2-->
+    <!--Witwe Su's Hause-->
+    <!--Kleines, unaufgeräumtes Zimmer mit Spinnen-->
+    <a-entity id="SusHaus"
+              geometry="primitive: box; width: 7; height: 0.2; depth: 6"
+              material="color: #000000"
+              position ="-7 0 24"></a-entity>
+    <a-entity id="SusHaus-Innen"
+              geometry="primitive: box; width: 6.5; height: 0.201; depth: 5.5"
+              material="color: #ffffff"
+              position ="-7 0 24"></a-entity>
+
+    <!--HG3-->
+    <!--Herr Tsheng's Haus-->
+    <!--"Verschone mih mit deinen Göttern"-->
+    <!--Haus voll Verwandtschaft-->
+    <!--Böse Verwandtschaft-->
+    <a-entity id="TshengsHaus"
+              geometry="primitive: box; width: 14; height: 0.2; depth: 13"
+              material="color: #000000"
+              position ="-27 0 9"></a-entity>
+    <a-entity id="TshengsHaus-Innen"
+              geometry="primitive: box; width: 13.5; height: 0.2009; depth: 12.5"
+              material="color: #ffffff"
+              position ="-27 0 9"></a-entity>
+    <!--??Flut??-->
+    <!--Gespräch über Flut-->
+    <!--???Straßen werden langsam mit Wasser geflutet???-->
+    <!--???Flut zieht wieder ab???-->
+    <!---->
+    <!--?HG`s?-->
+    <!--Wang zögernd in den Straßen-->
+    <!--??Vielleicht noch ein paar Häuser, die Ihn abweisen, während die Götter reden-->
+    <!--Auch Wang ist ein Betrüger, => Farbänderung?-->
+    <!---->
+    <!--HG?-->
+    <!--Gespräch mit einem Herren-->
+    <!--Dieser weist Wang ab und geht weiter-->
+    <!---->
+    <!--HG4-Tabakladen-->
+    <!--Gespräch mit nächstem Herren-->
+    <!--Auch dieser weist Wang ab-->
+    <!--Geht in einen Tabakladen-->
+    <!--Wände noch nicht hochziehen...-->
+    <!---->
+    <!--Wang wieder zu den Göttern-->
+    <!--Doppelter_Boden_Becher auf dem Boden-->
+    <!--Wang wieder ab-->
+    <!---->
+    <!--Wang zu dem Tabakladen-->
+    <!--Mann ab-->
+    <!--Tabakladen zieht sich zu-->
+    <!---->
+    <a-entity id="Tabakladen"
+              geometry="primitive: box; width: 16; height: 0.2; depth: 10"
+              material="color: #000000"
+              position ="11.5 0 -15.5"></a-entity>
+    <a-entity id="Tabakladen-Innen"
+              geometry="primitive: box; width: 15.5; height: 0.201; depth: 9.5"
+              material="color: #ffffff"
+              position ="11.5 0 -15.5"></a-entity>
+
+    <!--HG5-->
+    <!--Shen Te's Haus-->
+    <!--Wang zu ihrem Haus-->
+    <!--Gespräch-->
+    <!--...-->
+    <!---->
+    <!---->
+    <a-entity id="ShenTesHaus"
+              geometry="primitive: box; width: 14; height: 0.2; depth: 10"
+              material="color: #000000"
+              position ="20 0 50"></a-entity>
+    <a-entity id="ShenTesHaus-Innen"
+              geometry="primitive: box; width: 13.5; height: 0.201; depth: 9.5"
+              material="color: #ffffff"
+              position ="20 0 50"></a-entity>
+
+    <!--Straßen-Grundriss-->
+    <!--Hauptstraße-->
+    <a-entity id="hauptstraße-1"
+              geometry="primitive: box; width: 0.02; height: 0.02; depth: 150"
+              material="color: #000000"
+              position ="-3 0 0"></a-entity>
+    <a-entity id="hauptstraße-2"
+              geometry="primitive: box; width: 0.02; height: 0.02; depth: 150"
+              material="color: #000000"
+              position ="3 0 0"></a-entity>
+    <!--Seitenstraße-1-V-->
+    <a-entity id="seitenstraße-1.1"
+              geometry="primitive: box; width: 70; height: 0.05; depth: 0.02"
+              material="color: #000000"
+              position ="38 0 -10"></a-entity>
+    <a-entity id="seitenstraße-1.2"
+              geometry="primitive: box; width: 70; height: 0.05; depth: 0.02"
+              material="color: #000000"
+              position ="38 0 -6"></a-entity>
+    <!--Seitenstraße-2-V-->
+    <a-entity id="seitenstraße-2.1"
+              geometry="primitive: box; width: 70; height: 0.05; depth: 0.02"
+              material="color: #000000"
+              position ="-38 0 -20"></a-entity>
+    <a-entity id="seitenstraße-2.2"
+              geometry="primitive: box; width: 70; height: 0.05; depth: 0.02"
+              material="color: #000000"
+              position ="-38 0 -16"></a-entity>
+    <!--Seitenstraße-3-H-->
+    <a-entity id="seitenstraße-3.1"
+              geometry="primitive: box; width: 70; height: 0.05; depth: 0.02"
+              material="color: #000000"
+              position ="38 0 40"></a-entity>
+    <a-entity id="seitenstraße-3.2"
+              geometry="primitive: box; width: 70; height: 0.05; depth: 0.02"
+              material="color: #000000"
+              position ="38 0 44"></a-entity>
+    <!--Seitenstraße-4-H-->
+    <a-entity id="seitenstraße-4.1"
+              geometry="primitive: box; width: 70; height: 0.05; depth: 0.02"
+              material="color: #000000"
+              position ="-38 0 20"></a-entity>
+    <a-entity id="seitenstraße-4.2"
+              geometry="primitive: box; width: 70; height: 0.05; depth: 0.02"
+              material="color: #000000"
+              position ="-38 0 16"></a-entity> <!--Ende Straßen-->
+    <!---->
+    <!--Häuser-Komplett-->
+    <a-entity id="random-haus1"
+              obj-model="obj: #house1"
+              scale="0.01 0.01 0.01"
+              position="-50 3 -8"
+              rotation="0 180 0"></a-entity>
+    <a-entity id="random-haus2"
+              obj-model="obj: #house2"
+              scale="0.01 0.01 0.01"
+              position="-13 3 -25"
+              rotation="0 90 0"></a-entity>
+    <a-entity id="random-haus3"
+              obj-model="obj: #house3"
+              scale="0.01 0.01 0.01"
+              position="10 3 -28"
+              rotation="0 270 0"></a-entity>
+    <a-entity id="random-haus4"
+              obj-model="obj: #house5"
+              scale="0.01 0.01 0.01"
+              position="27 3 -14"
+              rotation="0 90 0"></a-entity>
+    <a-entity id="random-haus6"
+              obj-model="obj: #house2"
+              scale="0.01 0.01 0.01"
+              position="7 3 16"
+              rotation="0 180 0"></a-entity>
+    <a-entity id="random-haus7"
+              obj-model="obj: #house5"
+              scale="0.01 0.01 0.01"
+              position="-20 3 24.5"
+              rotation="0 270 0"></a-entity>
+    <a-entity id="random-haus8"
+              obj-model="obj: #house1"
+              scale="0.01 0.01 0.01"
+              position="-10 3 -37"
+              rotation="0 90 0"></a-entity>
+    <a-entity id="random-haus9"
+              obj-model="obj: #house1"
+              scale="0.01 0.01 0.01"
+              position="-10 3 -58"
+              rotation="0 90 0"></a-entity>
+    <a-entity id="random-haus10"
+              obj-model="obj: #house1"
+              scale="0.01 0.01 0.01"
+              position="-19 3 -27"
+              rotation="0 0 0"></a-entity>
+    <a-entity id="random-haus11"
+              obj-model="obj: #house2"
+              scale="0.01 0.01 0.01"
+              position="6 3 -52"
+              rotation="0 0 0"></a-entity>
+    <a-entity id="random-haus12"
+              obj-model="obj: #house2"
+              scale="0.01 0.01 0.01"
+              position="-6 3 58"
+              rotation="0 180 0"></a-entity>
+    <a-entity id="random-haus13"
+              obj-model="obj: #house5"
+              scale="0.01 0.01 0.01"
+              position="-7 3 36"
+              rotation="0 180 0"></a-entity>
+    <a-entity id="random-haus14"
+              obj-model="obj: #house5"
+              scale="0.01 0.01 0.01"
+              position="7 3 52"
+              rotation="0 180 0"></a-entity>
+    <a-entity id="random-haus15"
+              obj-model="obj: #house5"
+              scale="0.01 0.01 0.01"
+              position="-34 3 -11.5"
+              rotation="0 270 0"></a-entity>
+    <a-entity id="random-haus16"
+              obj-model="obj: #house2"
+              scale="0.01 0.01 0.01"
+              position="-23.5 3 -11.5"
+              rotation="0 90 0"></a-entity>
+    <a-entity id="random-haus17"
+              obj-model="obj: #house1"
+              scale="0.01 0.01 0.01"
+              position="-35 3 27"
+              rotation="0 180 0"></a-entity>
+    <a-entity id="random-haus18"
+              obj-model="obj: #house1"
+              scale="0.01 0.01 0.01"
+              position="-41 3 8"
+              rotation="0 0 0"></a-entity>
+    <a-entity id="random-haus19"
+              obj-model="obj: #house3"
+              scale="0.01 0.01 0.01"
+              position="-50 3 27"
+              rotation="0 180 0"></a-entity>
+
+
+    <!--Figuren-->
+    <!---->
+    <!--Götter-->
+    <a-entity id="gott1" collada-model="#gottFigur" scale="2 2 2" color="white" position ="20 105 0">
+        <a-animation attribute="position" from="20 105 0" to="2 0 0" begin="0" dur="10000"></a-animation>
+    </a-entity>
+    <a-entity id="gott2" collada-model="#gottFigur" scale="2 2 2" color="white" position ="-20 105 0">
+        <a-animation attribute="position" from="-20 105 0" to="-2 0 0" begin="0" dur="10000"></a-animation>
+    </a-entity>
+    <a-entity id="gott3" collada-model="#gottFigur" scale="2 2 2" color="white" position ="0 105 20">
+        <a-animation attribute="position" from="0 105 20" to="0 0 1" begin="0" dur="10000"></a-animation>
+    </a-entity>
+    <!--Wasserträger - Wang-->
+    <a-entity id="wassertraeger" collada-model="#wasserFigur" scale="2 2 2" color="white" position ="0 0 5" rotation="0 180 0"></a-entity>
+</a-scene>
 </body>
 </html>
 
