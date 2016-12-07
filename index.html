@@ -5,12 +5,15 @@
     <title>Index</title>
     <meta name="description" content="A-Frame">
     <script src="https://aframe.io/releases/0.3.2/aframe.min.js"></script>
+    <script src="js/main.js"></script>
 </head>
 
 <!--Kommentar wird in A-Frame so geschrieben, bei // ist die Schrift links oben in der Szene-->
 <body>
 <a-scene>
     <!--Bilder, Texturen, Modelle, etc.-->
+    <!---->
+    <!---WICHTIG! IM INDEX DÜRFEN KEINE SONDERZEICHEN VERWENDET WERDEN--->
     <!---->
     <a-assets>
         <!--Wolken-->
@@ -27,13 +30,42 @@
         <a-asset-item id="wasserFigur" src="dae/Wassertrager.dae"></a-asset-item>
         <!--Ton - Volkan Saz-->
         <audio id="volkanMusik" src="ton/volkanSaz01.mp3"></audio>
+        <!--Ton - Dialoge-->
+        <audio id="introwt11" src="ton/prolog_1_3_1wm1.mp3"></audio>
+        <audio id="introwt12" src="ton/prolog_1_3_2wm2.mp3"></audio>
+        <audio id="introwt13" src="ton/prolog_1_3_3wm3.mp3"></audio>
+        <audio id="introwt14" src="ton/prolog_1_3_4wm4.mp3"></audio>
+        <audio id="introwt15" src="ton/prolog_1_3_5wm5.mp3"></audio>
+        <audio id="introwt16" src="ton/prolog_1_3_6wm6.mp3"></audio>
+        <audio id="introwt17" src="ton/prolog_1_3_7wm7.mp3"></audio>
+        <audio id="introwt18" src="ton/prolog_1_3_8g1.mp3"></audio>
     </a-assets>
 
     <!--Hintergrundton-->
-    <a-entity sound="src: #volkanMusik; autoplay: true; loop:true"></a-entity>
+
+    <a-entity sound="src: #volkanMusik; autoplay: true; loop:true; volume: 3;"></a-entity>
     <!---->
     <!--Man kann den Ton auch an Objekte hängen (also für uns die Häuser vielleicht gut) und das der Ton z.B. erst auf Klick des Hauses losgeht-->
     <!---->
+
+    <!--Dialoge-->
+    <!-- Intro -->
+    <!-- Wasserträger -->
+    <a-sound id ="nar1" src="#introwt11" autoplay="true" play-next-sound ="#nar2"></a-sound>
+    <a-sound id ="nar2" src="#introwt12" autoplay="false" play-next-sound ="#nar3"></a-sound>
+    <!-- Arbeiter-->
+    <a-sound id ="nar3" src="#introwt13" autoplay="false" play-next-sound ="#nar4"></a-sound>
+    <!-- Schreiber-->
+    <a-sound id ="nar4" src="#introwt14" autoplay="false" play-next-sound ="#nar5"></a-sound>
+    <!-- Prügler-->
+    <a-sound id ="nar5" src="#introwt15" autoplay="false" play-next-sound ="#nar6"></a-sound>
+
+    <a-sound id ="nar6" src="#introwt16" autoplay="false" play-next-sound ="#nar7"></a-sound>
+    <a-sound id ="nar7" src="#introwt17" autoplay="false" play-next-sound ="#nar8"></a-sound>
+
+    <!-- Götter-->
+    <a-sound id ="nar8" src="#introwt18" autoplay="false" play-next-sound ="#nar1"></a-sound>
+
 
     <!--Kamera-->
     <a-entity id="kamera"
@@ -72,7 +104,7 @@
             <a-animation attribute="rotation"
                          from="90 0 0"
                          to="90 -360 0"
-                         dur="40000"
+                         dur="45000"
                          fill="none"
                          repeat="indefinite"></a-animation>
         </a-image>
@@ -339,13 +371,13 @@
     <!---->
     <!--Götter-->
     <a-entity id="gott1" collada-model="#gottFigur" scale="2 2 2" color="white" position ="20 105 0">
-        <a-animation attribute="position" from="20 105 0" to="2 0 0" begin="0" dur="10000"></a-animation>
+        <a-animation attribute="position" from="20 105 0" to="2 0 0" delay="116000" dur="10000"></a-animation>
     </a-entity>
     <a-entity id="gott2" collada-model="#gottFigur" scale="2 2 2" color="white" position ="-20 105 0">
-        <a-animation attribute="position" from="-20 105 0" to="-2 0 0" begin="0" dur="10000"></a-animation>
+        <a-animation attribute="position" from="-20 105 0" to="-2 0 0" delay="116000" dur="10000"></a-animation>
     </a-entity>
     <a-entity id="gott3" collada-model="#gottFigur" scale="2 2 2" color="white" position ="0 105 20">
-        <a-animation attribute="position" from="0 105 20" to="0 0 1" begin="0" dur="10000"></a-animation>
+        <a-animation attribute="position" from="0 105 20" to="0 0 1" delay="116000" dur="10000"></a-animation>
     </a-entity>
     <!--Wasserträger - Wang-->
     <a-entity id="wassertraeger" collada-model="#wasserFigur" scale="2 2 2" color="white" position ="0 0 5" rotation="0 180 0"></a-entity>
