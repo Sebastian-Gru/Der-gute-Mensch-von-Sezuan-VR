@@ -47,7 +47,7 @@
     <!--Wasserträger-->
     <a-asset-item id="wasserFigur" src="dae/Wassertrager.dae"></a-asset-item>
     <!--Standard Mann-->
-    <a-asset-item id="standardperson" src="charaktere/Standard Person.dae"></a-asset-item>
+    <a-asset-item id="standardperson" src="charaktere/StandardFrau.dae"></a-asset-item>
     <!--Ton - Volkan Saz-->
     <audio id="volkanMusik" src="ton/volkanSaz01.mp3"></audio>
     <!--Ton - Dialoge-->
@@ -775,6 +775,7 @@
       <a-animation attribute="rotation" direction="alternate" from="0 180 -4" to="0 180 4" delay="500" dur="1500" repeat="100"></a-animation>
     </a-entity>
 
+    <!--Arbeiter-->
     <a-entity id="arbeiter" collada-model="#standardperson" scale="2 2 2" color="black" position="24 0 -7" visible="false">
       <a-animation attribute="visible" to="true" delay="83000" dur="2000"></a-animation>
       <a-animation attribute="position" from="24 0 -7" to="0 0 -7" delay="83000" dur="18000"></a-animation>
@@ -782,11 +783,11 @@
       <a-animation attribute="position" from="0 0 -7" to="0 0 -60" delay="101000" dur="25000"></a-animation>
       <a-animation attribute="visible" to="false" delay="125000" dur="2000"></a-animation>
     </a-entity>
-            <!--Standardperson2-->
+    <!--Standardperson2-->
     <a-entity id="arbeiter" collada-model="#standardperson" scale="2 2 2" color="black" position="26 0 -7" visible="false">
       <a-animation attribute="visible" to="true" delay="83000" duration="2000"></a-animation>
       <a-animation attribute="position" from="26 0 -7" to="2 0 -7" delay="83000" dur="18000"></a-animation>
-    <a-animation attirbute="rotation" from="0 0 0" to="0 90 0" delay="99000" dur="4000"></a-animation>
+      <a-animation attirbute="rotation" from="0 0 0" to="0 90 0" delay="99000" dur="4000"></a-animation>
       <a-animation attribute="position" from="2 0 -7" to="2 0 -60" delay="101000" dur="25000"></a-animation>
       <a-animation attribute="visible" to="false" delay="125000" dur="2000"></a-animation>
     </a-entity>
